@@ -10,7 +10,7 @@ const groq = new Groq({
 export async function POST(req: Request){
     try{
         const body = await req.json();
-        const {prompt} = body;
+        const {prompt, judge} = body;
 
         if(!prompt) {
             return NextResponse.json(
@@ -19,23 +19,35 @@ export async function POST(req: Request){
             );
         }
         const startTime = Date.now();
-        const response = await groq.chat.completions.create({
+        const [responseModel, responseJudge ]= await Promise.all([ groq.chat.completions.create({
             model: "mixtral-8x7b-32768",
             messages: [
                 {role: "system", content: "You hare a helpful assitant"},
                 {role: "user", content: prompt}
             ]
-        });
+        }),
+        judge
+            ? groq.chat.completions.create({
+                model: "llama3-70b-8192",
+                messages: [
+                    {role: "system", content: "You are an impartial AI judge evaluating chatbot responses." },
+                    {role: "user", content: prompt}
+                ],
+            })
+            : null,
+        ]);
         const endTime = Date.now();
         const responseTime = endTime - startTime;
+
         console.log(
-            "Llama response time: ", 
+            judge ? "Groq Judge (Llama3) response time:" : "Groq Model (Mixtral) response time:",
             new Date(startTime).toISOString(),
             responseTime
         );
 
         return NextResponse.json({
-            content: response.choices[0]?.message.content,
+            modelResponse: responseModel.choices[0].message,
+            judgeResponse: responseJudge ? responseJudge.choices[0].message : null,
             responseTime
         });
 
