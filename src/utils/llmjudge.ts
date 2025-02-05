@@ -1,5 +1,9 @@
 import Groq from "groq-sdk";
 import { consineSimilarity } from "./cosineSimilarity";
+import { Score } from "../types/evaluation";
+import { detectTaskType } from "./detectTask";
+import { textToVector } from "./textToVector";
+
 
 //Init Groq
 const groq = new Groq({
@@ -8,16 +12,7 @@ const groq = new Groq({
 
 
 
-//Interface for scores
-interface Score {
-    accuracy: number;
-    creativity: number;
-    consineSimilarity: number;
-    relevance: number;
-    conciseness: number;
-    helpfulness: number;
-    depth: number;
-}
+
 
 
 
