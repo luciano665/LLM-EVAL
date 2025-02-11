@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import Groq from "groq-sdk";
-import { error } from "console";
 
 
 const groq = new Groq({
