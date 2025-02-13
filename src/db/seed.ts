@@ -40,7 +40,6 @@ async function seed() {
             gemminiScore: 0,
             openAiScore: 0,
             deepseekScore: 0,
-            llamaScore: 0,
             conclusion: "No conclusion provided",
         },
     ]);

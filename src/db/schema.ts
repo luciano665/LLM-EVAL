@@ -22,7 +22,6 @@ export const scores = pgTable('score_data', {
     openAiScore: real('openai_score').notNull(),
     gemminiScore: real('gemenis_score').notNull(),
     deepseekScore: real('deepseek_score').notNull(),
-    llamaScore: real('llama_score').notNull(),
     mixtralScore: real('mistral_score').notNull(),
     conclusion: text('conclusion').notNull().default('No conclusion provided.')
 });
