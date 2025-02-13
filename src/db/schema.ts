@@ -1,5 +1,14 @@
 
-import { uuid, integer, text, boolean, pgTable, serial, real} from "drizzle-orm/pg-core";
+import { text, pgTable, serial, real} from "drizzle-orm/pg-core";
+
+/**
+ * Table: experiments_table
+ * 
+ * Stores details about AI test experiments, including:
+ * - `systemPrompt`: The initial instruction given to the model.
+ * - `testQuestion`: The question being tested.
+ * - `expectedAnswer`: The expected correct answer.
+ */
 
 export const experiments = pgTable('experiments-table', {
     id: serial('id').primaryKey(),
