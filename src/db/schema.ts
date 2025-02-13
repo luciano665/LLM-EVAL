@@ -14,7 +14,7 @@ export const scores = pgTable('score_data', {
     gemminiScore: real('gemenis_score').notNull(),
     deepseekScore: real('deepseek_score').notNull(),
     llamaScore: real('llama_score').notNull(),
-    mistralScore: real('mistral_score').notNull(),
+    mixtralScore: real('mistral_score').notNull(),
     conclusion: text('conclusion').notNull().default('No conclusion provided.')
 });
 
@@ -24,5 +24,5 @@ export const speed = pgTable('speed_data', {
     gemminiSpeed: real('gemenis_speed').notNull(),
     deepseekSpeed: real('deepseek_speed').notNull(),
     llamaSpeed: real('llama_speed').notNull(),
-    mistralSpeed: real('mistral_speed').notNull(), 
+    mixtralSpeed: real('mistral_speed').notNull(), 
 });
