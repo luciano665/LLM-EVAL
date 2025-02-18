@@ -8,8 +8,7 @@ import callDeepSeek from "./actions/deepseek";
 import callGroq from "./actions/groq";
 import callOpenAi from "./actions/openai";
 import callGemini from "./actions/gemini";
-//
-
+//DIALY COMMIT
 export default function Home() {
   /**
    * Prompt area, will be using three of them
