@@ -30,7 +30,7 @@ export default function PromptArea({
       placeholder={placeholder}
       disabled={disabled}
       aria-label="Insert you prompt here and see..."
-      className="min-h-[100px] w-full resize-none bg-white shadow-lg"
+      className="min-h-[70px] w-full resize-none bg-white shadow-lg"
     />
   );
 }

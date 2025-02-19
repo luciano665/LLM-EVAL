@@ -17,7 +17,7 @@ export default function ResponseArea({ value, isLoading }: ResponseAreaProps) {
   return (
     <div className="flex justify-center items-center relative">
       <div
-        className={` ${width} h-600 border rounded-md p-4 overflow-auto bg-white shadow-lg transition-all duration-200 ease-linear`}
+        className={` ${width} min-h-[600px] border rounded-md p-4 overflow-auto bg-white shadow-lg transition-all duration-200 ease-linear`}
       >
         {value ? (
           <ReactMarkdown
