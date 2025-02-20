@@ -11,7 +11,7 @@ interface ResponseAreaProps {
 export default function ResponseArea({ value, isLoading }: ResponseAreaProps) {
   //Sidebar later
   //const isOpen = sidebar ..
-
+  // siBAR IN PROGRESS
   const width = "w-[535px]";
 
   return (
